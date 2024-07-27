@@ -274,7 +274,7 @@ There are only two other options provided in the user interface. The ability to 
 
 # Using extremely precise timestamping
 
-The Basler Pro GigE camera's support Precision Time Protocol ([https://en.wikipedia.org/wiki/Precision_Time_Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol)). When a PTP Master Clock is in the same network (specifically the same broadcast domain) the camera will pick up the time and all frames will be timestamped with this extremely accurate information. Testing has shown an accuracy of better then 5 ms.
+The Basler Pro GigE camera's support [Precision Time Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol). When a PTP Master Clock is in the same network (specifically the same broadcast domain) the camera will pick up the time and all frames will be timestamped with this extremely accurate information. Testing has shown an accuracy of better then 5 ms.
 
 The main user interface will indicate if a reliable PTP source is found in the network. Please note that your network switch needs to support PTP. The "TP-Link TL-SG105PE" referenced earlier has been extensively tested.
 

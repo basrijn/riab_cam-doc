@@ -80,6 +80,7 @@ Below is a list of the things needed to use the software for timing:
 - [ ] A network switch when using the GigE network cameras
 - [ ] Internet connection
 - [ ] A router
+- [ ] Reliable time source
 - [ ] A dependable power source
 - [ ] A laptop with as much processing power as possible
 - [ ] An external hard drive to stores the captured videos
@@ -118,6 +119,10 @@ If budget allows, the TP-Link TL-SG105PE provides some extra management and capa
 ## Router / Internet connection
 
 When using the network cameras, you need a device in the network that provides a network address to the laptop and the camera. Since we need an internet connection as well, this is often a wireless (4G) router. Please work with your LOC technical resource to ensure a reliable internet connection is available.
+
+## Reliable time source
+
+See [this section](#using-extremely-precise-timestamping) for some more detail if you want extremely accurate time. By default the software relies on the time of the PC. It's recommended to use the ["Time-Sync" software](https://www.speed-soft.de/software/time_sync/index.php) developed by Rainer Döpke at Speed-Soft. Using "pool.ntp.org" as a time source with a sync every minute is a good start. If you are using more then one camera to determine race time, you should read the section linked earlier.
 
 ## Laptop
 
@@ -267,7 +272,21 @@ To stop the recording, you press the spacebar again.
 
 There are only two other options provided in the user interface. The ability to enter a full screen mode, and the ability to force the application to a 24 FPS mode for finish order only (not timing)
 
+# Using extremely precise timestamping
+
+The Basler Pro GigE camera's support Precision Time Protocol ([https://en.wikipedia.org/wiki/Precision_Time_Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol)). When a PTP Master Clock is in the same network (specifically the same broadcast domain) the camera will pick up the time and all frames will be timestamped with this extremely accurate information. Testing has shown an accuracy of better then 5 ms.
+
+The main user interface will indicate if a reliable PTP source is found in the network. Please note that your network switch needs to support PTP. The "TP-Link TL-SG105PE" referenced earlier has been extensively tested.
+
+If you do not have access to a PTP time source, a NTP time source in the local network provides very good performance. It should not be a problem to get 10ms or better accuracy.
+
+When not using PTP, the software will timestamp using the time of the PC. See the setup section for a software recommendation to have better control over the PC time.
+
+A local time source becomes of great importance when your timing system leverage multiple cameras to determine for example overall race time.
+
 # Appendix I: Supported cameras
+
+The "Basler Ace 2 R" is the recommended camera.
 
 | **Model**                                                    | **Resolution** | **FPS** | **Interface** | **Mount** | **Cost** |
 | ------------------------------------------------------------ | -------------- | ------- | ------------- | --------- | -------- |

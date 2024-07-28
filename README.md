@@ -122,7 +122,7 @@ When using the network cameras, you need a device in the network that provides a
 
 ## Reliable time source
 
-See [this section](#using-extremely-precise-timestamping) for some more detail if you want extremely accurate time. By default the software relies on the time of the PC. It's recommended to use the ["Time-Sync" software](https://www.speed-soft.de/software/time_sync/index.php) developed by Rainer Döpke at Speed-Soft. Using "pool.ntp.org" as a time source with a sync every minute is a good start. If you are using more then one camera to determine race time, you should read the section linked earlier.
+See [this section](#using-extremely-precise-timestamping) for some more detail if you want extremely accurate time. By default the software relies on the time of the PC. It's recommended to use the ["Time-Sync" software](https://www.speed-soft.de/software/time_sync/index.php) developed by Rainer Döpke at Speed-Soft. Using "pool.ntp.org" as a time source with a sync every minute is a good start, and will get your time accurate to around 30ms. If you are using more then one camera to determine race time, you should read the section linked earlier.
 
 ## Laptop
 
@@ -279,6 +279,8 @@ The Basler Pro GigE camera's support [Precision Time Protocol](https://en.wikipe
 The main user interface will indicate if a reliable PTP source is found in the network. Please note that your network switch needs to support PTP. The "TP-Link TL-SG105PE" referenced earlier has been extensively tested.
 
 If you do not have access to a PTP time source, a NTP time source in the local network provides very good performance. It should not be a problem to get 10ms or better accuracy.
+
+When using an internet NTP source, like [pool.ntp.org](https://ntp.org/), you will see an accuracy of around 30ms.
 
 When not using PTP, the software will timestamp using the time of the PC. See the setup section for a software recommendation to have better control over the PC time.
 

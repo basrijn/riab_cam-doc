@@ -280,7 +280,7 @@ The main user interface will indicate if a reliable PTP source is found in the n
 
 If you do not have access to a PTP time source, a NTP time source in the local network provides very good performance. It should not be a problem to get 10ms or better accuracy.
 
-When using an internet NTP source, like [pool.ntp.org](https://ntp.org/), you will see an accuracy of around 30ms.
+When using an internet NTP source, like [pool.ntp.org](https://www.ntppool.org/), you will see an accuracy of around 30ms.
 
 When not using PTP, the software will timestamp using the time of the PC. See the setup section for a software recommendation to have better control over the PC time.
 
